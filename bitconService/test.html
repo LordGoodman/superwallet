@@ -6,7 +6,9 @@
 
 <body>
 <div ng-app='myApp' ng-controller="ajaxReq">
- 	<p>{{ value }}</p>
+ 	<p>{{ value1 }}</p>
+	<b/>
+	<p>{{ value2 }}</p>
 </div>
 
 <script>
@@ -18,7 +20,8 @@
 };
 	var app = angular.module('myApp',[]);
 	app.controller('ajaxReq',function($scope,$http,$httpParamSerializerJQLike) {
-	$http.post(SERVERURL, $httpParamSerializerJQLike({"utxo":"mgMCdTHJNPVYmBcPJvUZV8EcsUVGUQT7gw"}), config).success(function(data){$scope.value = data.result;});});
+	$http.post(SERVERURL, $httpParamSerializerJQLike({"network":"bitcoin","utxo":"mgMCdTHJNPVYmBcPJvUZV8EcsUVGUQT7gw"}), config).success(function(data){$scope.value1 = data;}); //success is different from then!!!!!!!!!!!!!!!!!!!!
+	$http.post(SERVERURL, $httpParamSerializerJQLike({"network":"ethereum","balance":"df5d17e416eff3220018227794c436398aba50e0"}), config).success(function(data){$scope.value2 = data;});});
 </script>
 
 </body>
