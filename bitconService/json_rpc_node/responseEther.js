@@ -3,7 +3,7 @@ var rpc = require('node-json-rpc');
 var Sync = require('sync');
 var BN = require('bignumber.js');
 var wait = require('wait.for');
-var Response = function() {}
+var Response = function() {};
 Response.client = new rpc.Client({
 	port: 8545,
 	host: '192.168.246.129',
