@@ -20,7 +20,7 @@ var globalService = function($http, $httpParamSerializerJQLike) {
       name: "NAV_GenerateWallet",
       url: "generate-wallet",
       mew: true,
-      cx: false,
+      cx: false
     },
     bulkGenerate: {
       id: 1,
@@ -50,15 +50,22 @@ var globalService = function($http, $httpParamSerializerJQLike) {
       mew: true,
       cx: true
     },
-    tokens: {
+    sendTransaction2: {
       id: 5,
+      name: "NAV_SendBit",
+      url: "send-transaction2",
+      mew: true,
+      cx: true
+    },
+    tokens: {
+      id: 6,
       name: "NAV_SendTokens",
       url: "send-tokens",
       mew: true,
       cx: true
     },
     offlineTransaction: {
-      id: 6,
+      id: 7,
       name: "NAV_Offline",
       url:"offline-transaction",
       mew: true,
@@ -81,6 +88,7 @@ var globalService = function($http, $httpParamSerializerJQLike) {
       cx: true
     },
 	*/
+    /*
     deployContract: {
       //id: 9,
 	  id: 7,
@@ -89,6 +97,7 @@ var globalService = function($http, $httpParamSerializerJQLike) {
       mew: true,
       cx: true
     },
+    */
     viewWalletInfo: {
       //id: 10,
 	  id: 8,
@@ -96,7 +105,7 @@ var globalService = function($http, $httpParamSerializerJQLike) {
       url: "view-wallet-info",
       mew: true,
       cx: false
-    },
+    }
 	/*
     help: {
       //id: 11,

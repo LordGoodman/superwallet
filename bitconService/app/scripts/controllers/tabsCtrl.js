@@ -1,7 +1,8 @@
 'use strict';
 var tabsCtrl = function($scope, globalService, $translate) {
 	$scope.tabNames = globalService.tabs;
-	$scope.curLang = "English";
+    $scope.curLang = "中文";
+	//$scope.curLang = "English";
 	var hval = window.location.hash;
     if(document.getElementById("langDrop"))
         document.getElementById("langDrop").setAttribute("style", "");

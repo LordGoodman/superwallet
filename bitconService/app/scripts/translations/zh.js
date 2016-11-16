@@ -10,6 +10,7 @@ zh.data = {
   NAV_GenerateWallet:   '生成钱包',
   NAV_BulkGenerate:     '批量生成',
   NAV_SendEther:        '发送以太币',
+  NAV_SendBit:          '发送比特币',
   NAV_SendTokens:       '发送代币',
   NAV_Offline:          '离线发送',
   NAV_WithdrawDAO:      'DAO提取DAO',

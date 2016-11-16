@@ -10,6 +10,7 @@ en.data = {
   NAV_GenerateWallet:   'Generate Wallet',
   NAV_BulkGenerate:     'Bulk Generate',
   NAV_SendEther:        'Send Ether',
+  NAV_SendBit:          'Send BitCoin',
   NAV_SendTokens:       'Send Tokens',
   NAV_Offline:          'Send Offline',
   NAV_WithdrawDAO:      'Withdraw DAO',
