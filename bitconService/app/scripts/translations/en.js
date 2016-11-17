@@ -5,9 +5,10 @@ en.code = 'en';
 en.data = {
 
   /* Navigation*/
+  NAV_HomePage:         'Home Page',
   NAV_YourWallets:      'Your Wallets',
   NAV_AddWallet:        'Add Wallet',
-  NAV_GenerateWallet:   'Generate Wallet',
+  NAV_GenerateWallet:   'Generate Ether Wallet',
   NAV_BulkGenerate:     'Bulk Generate',
   NAV_SendEther:        'Send Ether',
   NAV_SendBit:          'Send BitCoin',
@@ -51,8 +52,8 @@ en.data = {
   /* Header */
   MEW_Warning_1:        'Always check the URL before accessing your wallet or creating a new wallet. Beware of phishing sites!',
   CX_Warning_1:         'Make sure you have **external backups** of any wallets you store here. Many things could happen that would cause you to lose the data in this Chrome Extension, including uninstalling and reinstalling the extension. This extension is a way to easily access your wallets, **not** a way to back them up.',
-  MEW_Tagline:          'Ether Wallet',
-	CX_Tagline:           'Ether Wallet Chrome Extension',
+  MEW_Tagline:          'Super Wallet',
+	CX_Tagline:           'Super Wallet Chrome Extension',
 
   /* Footer */
   FOOTER_1:             'An open source, javascript, client-side tool for generating Ethereum Wallets & sending transactions.',
@@ -138,6 +139,7 @@ en.data = {
   /* Send Transaction */
   TRANS_desc:            'If you want to send Tokens, please use the "Send Token" page instead.',
   TRANS_warning:         'If you are using the "Only ETH" or "Only ETC" Functions you are sending via a contract. Some services have issues accepting these transactions. Read more.',
+  TRANS_bit:             'BIT COIN',
   TRANS_standard:        'ETH (Standard Transaction)',
   TRANS_eth:             'Only ETH',
   TRANS_etc:             'Only ETC',

@@ -1,16 +1,12 @@
-<!-- Send Transaction Page -->
+<!-- Send Transaction2 Page -->
 <article class="tab-pane active" ng-if="globalService.currentTab==globalService.tabs.sendTransaction2.id" ng-controller='sendTxCtrl'>
-
-  <!-- TODO: Show this message if the URL has a query string.
-  <p class="alert alert-info" ng-show="tx.sendMode==0"> You clicked a link that has the address, amount, gas, and/or data fields pre-filled for you. You can change any information before sending. Unlock your wallet to get started. </p>
-  -->
 
   <article class="collapse-container">
 
     <div ng-click="wd = !wd">
       <a class="collapse-button"><span ng-show="wd">+</span><span ng-show="!wd">-</span></a>
 
-        <h2 translate="NAV_SendEther"> Send Ether </h2>
+        <h2 translate="NAV_SendBit"> Send BitCoin </h2>
 
     </div>
     <div ng-show="!wd">
@@ -22,9 +18,8 @@
     </div>
   </article>
 
-
-
-  <section class="row" ng-show="wallet!=null">
+  <section class="row">
+  <!-- <section class="row" ng-show="wallet!=null"> -->
     <hr ng-show="!wd" />
 
     <!-- Sidebar -->
@@ -52,18 +47,12 @@
         <li><span class="mono wrap">{{btcBalance}}</span> BTC </li>
       </ul>
 
+                                                                                 <!--
       <div translate="sidebar_TransHistory"> Transaction History: </div>
       <ul class="account-info">
         <li><a href="https://etherscan.io/address/{{wallet.getAddressString()}}" target="_blank">https://etherscan.io/address/ {{wallet.getAddressString()}}</a></li>
       </ul>
-
-<!--
-      <div class="well">
-        <p translate="sidebar_donation"> MyEtherWallet is a free, open-source service dedicated to your privacy and security. The more donations we receive, the more time we spend creating new features, listening to your feedback, and giving you what you want. We are just two people trying to change the world. Help us?</p>
-        <a class="btn btn-primary btn-block" ng-click="onDonateClick()" translate="sidebar_donate">DONATE</a>
-        <div class="text-success text-center marg-v-sm" ng-show="tx.donate" translate="sidebar_thanks"> THANK YOU!!! </div>
-      </div>
--->
+      -->
 
     </div>
 
@@ -72,10 +61,6 @@
 
     <!-- Content -->
     <div class="col-sm-8">
-
-      <a data-toggle="modal" data-target="#txInfoModal" ng-click="txInfoModal.open()">
-        <div class="alert alert-danger small" translate="TRANS_warning">If you are using the "Only ETH" or "Only ETC" Functions you are sending via a contract. Some services have issues accepting these transactions. Read more.</div>
-      </a>
 
       <h4 translate="SEND_trans">Send Transaction</h4>
 
@@ -94,13 +79,15 @@
         <input class="form-control" type="text" placeholder="{{ 'SEND_amount_short' | translate }}" ng-model="tx.value" ng-class="Validator.isPositiveNumber(tx.value) ? 'is-valid' : 'is-invalid'"/>
         <div class="radio">
           <label><input type="radio" name="currencyRadio" value="0" ng-model="tx.sendMode"/>
-            <span translate="TRANS_standard">ETH (Standard Transaction)</span></label>
+            <span translate="TRANS_bit">BIT (Standard Transaction)</span></label>
           <br />
+        <!--
           <label><input type="radio" name="currencyRadio" value="1" ng-model="tx.sendMode"/>
             <span translate="TRANS_eth">Only ETH </span></label>
           <br />
           <label><input type="radio" name="currencyRadio" value="2" ng-model="tx.sendMode"/>
             <span translate="TRANS_etc">Only ETC </span></label>
+        -->
         </div>
         <div class="form-group">
           <label translate="TRANS_gas"> Gas: </label>
@@ -143,13 +130,6 @@
 
       <div class="form-group col-xs-12" ng-bind-html="sendTxStatus"></div>
 
-      <div class="form-group col-xs-12 small">
-        <!--<p translate="TRANS_sendInfo">-->
-        <p> We use a gas price of 0.000000021 ETH to ensure your TX gets mined quickly. Multiply 0.000000021 by the gas of your TX to obtain the cost of the TX in ether. We do not take a transaction fee. </p>
-        <p> Standard TX: 21000 gas (0.000441 ether) <br />
-            TX to Wallet Contract: 23300 gas (0.0004893 ether) <br />
-            Only ETH / ETC TX: 60000 gas (0.00126 ether) </p>
-      </div>
       <!-- / Content -->
 
       <!-- Send Modal -->

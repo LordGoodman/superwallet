@@ -17,7 +17,8 @@
   </article>
 
 
-  <section class="row" ng-show="wallet!=null">
+  <section class="row">
+  <!-- <section class="row" ng-show="wallet!=null"> -->
     <hr ng-show="!wd" />
 
 

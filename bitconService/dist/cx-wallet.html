@@ -76,7 +76,9 @@
             <li><a ng-class="{true:'active'}[curLang=='English']" ng-click="changeLanguage('en','English')">English</a></li>
             <li><a ng-class="{true:'active'}[curLang=='中文']" ng-click="changeLanguage('zh','中文')">中文</a></li>
             <li role="separator" class="divider"></li>
+            <!--
             <li><a data-toggle="modal" data-target="#disclaimerModal" translate="FOOTER_4"> Disclaimer </a></li>
+            -->
           </ul>
         </span>
       </div>
@@ -593,7 +595,8 @@
 
 
 
-  <section class="row" ng-show="wallet!=null">
+  <section class="row">
+  <!-- <section class="row" ng-show="wallet!=null"> -->
     <hr ng-show="!wd" />
 
     <!-- Sidebar -->
@@ -965,7 +968,8 @@
   </article>
 
 
-  <section class="row" ng-show="wallet!=null">
+  <section class="row">
+  <!-- <section class="row" ng-show="wallet!=null"> -->
     <hr ng-show="!wd" />
 
 

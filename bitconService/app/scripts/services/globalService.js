@@ -6,66 +6,64 @@ var globalService = function($http, $httpParamSerializerJQLike) {
 
   var tabs = {
 
-	/*
-	mainPage: {
+	homePage: {
 	  id: 0,
-	  name: "NAV_MainPage",
-	  url: "main-page",
+	  name: "NAV_HomePage",
+	  url: "home-page",
 	  mew: true,
 	  cx: false
 	},
-	*/
     generateWallet: {
-      id: 0,
+      id: 1,
       name: "NAV_GenerateWallet",
       url: "generate-wallet",
       mew: true,
       cx: false
     },
     bulkGenerate: {
-      id: 1,
+      id: 2,
       name: "NAV_BulkGenerate",
       url: "bulk-generate",
       mew: false,
       cx: false
     },
     myWallet: {
-      id: 2,
+      id: 3,
       name: "NAV_MyWallets",
       url: "my-wallet",
       mew: false,
       cx: true
     },
     addWallet: {
-      id: 3,
+      id: 4,
       name: "NAV_AddWallet",
       url: "add-wallet",
       mew: false,
       cx: true
     },
     sendTransaction: {
-      id: 4,
+      id: 5,
       name: "NAV_SendEther",
       url: "send-transaction",
       mew: true,
       cx: true
     },
     sendTransaction2: {
-      id: 5,
+      id: 6,
       name: "NAV_SendBit",
       url: "send-transaction2",
       mew: true,
       cx: true
     },
     tokens: {
-      id: 6,
+      id: 7,
       name: "NAV_SendTokens",
       url: "send-tokens",
       mew: true,
       cx: true
     },
     offlineTransaction: {
-      id: 7,
+      id: 8,
       name: "NAV_Offline",
       url:"offline-transaction",
       mew: true,
@@ -100,7 +98,7 @@ var globalService = function($http, $httpParamSerializerJQLike) {
     */
     viewWalletInfo: {
       //id: 10,
-	  id: 8,
+	  id: 9,
       name: "NAV_ViewWallet",
       url: "view-wallet-info",
       mew: true,

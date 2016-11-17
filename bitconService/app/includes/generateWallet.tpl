@@ -1,7 +1,7 @@
 <section class="tab-pane active" ng-if="globalService.currentTab==globalService.tabs.generateWallet.id" ng-controller='walletGenCtrl'>
 
   <!-- Top -->
-  <h2 translate="NAV_GenerateWallet"> Generate Wallet </h2>
+  <h2 translate="NAV_GenerateWallet"> Generate Ether Wallet </h2>
 
   @@if (site === 'mew' ) {
     <p>
