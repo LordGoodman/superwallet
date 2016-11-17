@@ -5,9 +5,10 @@ zh.code = 'zh';
 zh.data = {
 
   /* Navigation*/
+  NAV_HomePage:         '首页',
   NAV_YourWallets:      '你的钱包',
   NAV_AddWallet:        '添加钱包',
-  NAV_GenerateWallet:   '生成钱包',
+  NAV_GenerateWallet:   '生成以太币钱包',
   NAV_BulkGenerate:     '批量生成',
   NAV_SendEther:        '发送以太币',
   NAV_SendBit:          '发送比特币',
@@ -48,8 +49,8 @@ zh.data = {
   /* Header */
   MEW_Warning_1:        '使用或者创建新钱包之前，一定要检查下网址是否正确。小心钓鱼网址！',
   CX_Warning_1:         '确保你备份了保存在这里的所有钱包。 许多事情包括卸载和重装扩展，都将使你丢失Chrome扩展中的数据。这个扩展是一种使用钱包的简单方式，但不是备份钱包的方式。',
-  MEW_Tagline:          '以太币钱包',
-  CX_Tagline:           '以太币钱包Chrome扩展',
+  MEW_Tagline:          '超级钱包',
+  CX_Tagline:           '超级钱包Chrome扩展',
 
   /* Footer */
   FOOTER_1:             '一个开源的生成以太坊钱包和发送交易的JavaScript客户端工具',
@@ -135,6 +136,7 @@ zh.data = {
   /* Send Transaction */
   TRANS_desc:            '如果你想发送代币，请使用“发送代币”页面。',
   TRANS_warning:         '如果你使用“只发送ETH”或则“只发送ETC”功能，那么你是通过合约发送交易。 一些服务（例如交易所充值）接收这些交易时会遇到问题。阅读更多内容。',
+  TRANS_bit:             '发送比特币',
   TRANS_standard:        '发送ETH（标准交易）',
   TRANS_eth:             '只发送ETH',
   TRANS_etc:             '只发送ETC',

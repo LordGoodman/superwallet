@@ -34,11 +34,6 @@
 
 
   <header ng-controller='tabsCtrl'>
-	<!--
-    <a class="small announcement annoucement-warning" target="_blank">
-      <div class="container" translate="MEW_Warning_1">Always check the URL before accessing your wallet or creating a new wallet. Beware of phishing sites!</div>
-    </a>
-	-->
     <section class="container-fluid bg-gradient header-branding">
       <section class="container">
         <a class="brand"><img src="images/etherwallet-logo.svg" height="64px" width="auto" alt="My Ether Wallet" />
@@ -53,35 +48,6 @@
 
 
         <!-- &middot; v1.0 &middot; -->
-        <span class="dropdown">
-          <a href="#" class="dropdown-toggle" ng-click="dropdown = !dropdown"> {{curLang}} <span class="caret"></span></a>
-          <ul class="dropdown-menu" ng-show="dropdown" style="display:none;" id="langDrop">
-        <!--
-            <li><a ng-class="{true:'active'}[curLang=='Deutsch']" ng-click="changeLanguage('de','Deutsch')">Deutsch</a></li>
-            <li><a ng-class="{true:'active'}[curLang=='Ελληνικά']" ng-click="changeLanguage('el','Ελληνικά')">Ελληνικά</a></li>
-            <li><a ng-class="{true:'active'}[curLang=='English']" ng-click="changeLanguage('en','English')">English</a></li>
-            <li><a ng-class="{true:'active'}[curLang=='Suomi']" ng-click="changeLanguage('fi','Suomi')">Suomi</a></li>
-            <li><a ng-class="{true:'active'}[curLang=='Français']" ng-click="changeLanguage('fr','Français')">Français</a></li>
-            <li><a ng-class="{true:'active'}[curLang=='Magyar']" ng-click="changeLanguage('hu','Magyar')">Magyar</a></li>
-            <li><a ng-class="{true:'active'}[curLang=='Indonesian']" ng-click="changeLanguage('id','Indonesian')">Bahasa Indonesia</a></li>
-            <li><a ng-class="{true:'active'}[curLang=='Italiano']" ng-click="changeLanguage('it','Italiano')">Italiano</a></li>
-            <li><a ng-class="{true:'active'}[curLang=='日本語']" ng-click="changeLanguage('ja','日本語')">日本語</a></li>
-            <li><a ng-class="{true:'active'}[curLang=='Nederlands']" ng-click="changeLanguage('nl','Nederlands')">Nederlands</a></li>
-            <li><a ng-class="{true:'active'}[curLang=='Norsk Bokmål']" ng-click="changeLanguage('no','Norsk Bokmål')">Norsk Bokmål</a></li>
-            <li><a ng-class="{true:'active'}[curLang=='Polski']" ng-click="changeLanguage('pl','Polski')">Polski</a></li>
-            <li><a ng-class="{true:'active'}[curLang=='Русский']" ng-click="changeLanguage('ru','Русский')">Русский</a></li>
-            <li><a ng-class="{true:'active'}[curLang=='Türkçe']" ng-click="changeLanguage('tr','Türkçe')">Türkçe</a></li>
-            <li><a ng-class="{true:'active'}[curLang=='Tiếng Việt']" ng-click="changeLanguage('vi','Tiếng Việt')">Tiếng Việt</a></li>
-        -->
-            <li><a ng-class="{true:'active'}[curLang=='English']" ng-click="changeLanguage('en','English')">English</a></li>
-            <li><a ng-class="{true:'active'}[curLang=='中文']" ng-click="changeLanguage('zh','中文')">中文</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a data-toggle="modal" data-target="#disclaimerModal" translate="FOOTER_4"> Disclaimer </a></li>
-          </ul>
-        </span>
-      </div>
-    </section>
-  </section>
 
   <section class="container nav-container overflowing" >
     <a ng-show="showLeftArrow" class="nav-arrow-left" ng-click="scrollLeft(100);" ng-mouseover="scrollHoverIn(true,2);" ng-mouseleave="scrollHoverOut()">&#171;</a>
@@ -95,6 +61,21 @@
     </div>
     <a ng-show="showRightArrow" class="nav-arrow-right" ng-click="scrollRight(100);" ng-mouseover="scrollHoverIn(false,2);" ng-mouseleave="scrollHoverOut()">&#187;</a>
   </section>
+      </div>
+
+        <span class="dropdown">
+          <a href="#" class="dropdown-toggle" ng-click="dropdown = !dropdown"> {{curLang}} <span class="caret"></span></a>
+          <ul class="dropdown-menu" ng-show="dropdown" style="display:none;" id="langDrop">
+            <li><a ng-class="{true:'active'}[curLang=='English']" ng-click="changeLanguage('en','English')">English</a></li>
+            <li><a ng-class="{true:'active'}[curLang=='中文']" ng-click="changeLanguage('zh','中文')">中文</a></li>
+            <li role="separator" class="divider"></li>
+            <!--
+            <li><a data-toggle="modal" data-target="#disclaimerModal" translate="FOOTER_4"> Disclaimer </a></li>
+            -->
+          </ul>
+        </span>
+    </section>
+  </section>
 
 </header>
 
@@ -107,10 +88,15 @@
 
   <div class="tab-content" >
 
+	<section class="tab-pane active" ng-if="globalService.currentTab==globalService.tabs.homePage.id" ng-controller='walletGenCtrl'>
+
+</section>
+
+    
 	<section class="tab-pane active" ng-if="globalService.currentTab==globalService.tabs.generateWallet.id" ng-controller='walletGenCtrl'>
 
   <!-- Top -->
-  <h2 translate="NAV_GenerateWallet"> Generate Wallet </h2>
+  <h2 translate="NAV_GenerateWallet"> Generate Ether Wallet </h2>
 
   
     <p>
@@ -236,8 +222,6 @@
 </section>
 
 	
-	
-
     <!-- View Wallet Info Panel -->
 <article class="tab-pane active" ng-if="globalService.currentTab==globalService.tabs.viewWalletInfo.id" ng-controller='viewWalletCtrl'>
 
@@ -396,7 +380,8 @@
 
 
 
-  <section class="row" ng-show="wallet!=null">
+  <section class="row">
+  <!-- <section class="row" ng-show="wallet!=null"> -->
     <hr ng-show="!wd" />
 
     <!-- Sidebar -->
@@ -592,19 +577,15 @@
 <!-- / Send Transaction Page -->
 
 
-    <!-- Send Transaction Page -->
+    <!-- Send Transaction2 Page -->
 <article class="tab-pane active" ng-if="globalService.currentTab==globalService.tabs.sendTransaction2.id" ng-controller='sendTxCtrl'>
-
-  <!-- TODO: Show this message if the URL has a query string.
-  <p class="alert alert-info" ng-show="tx.sendMode==0"> You clicked a link that has the address, amount, gas, and/or data fields pre-filled for you. You can change any information before sending. Unlock your wallet to get started. </p>
-  -->
 
   <article class="collapse-container">
 
     <div ng-click="wd = !wd">
       <a class="collapse-button"><span ng-show="wd">+</span><span ng-show="!wd">-</span></a>
 
-        <h2 translate="NAV_SendEther"> Send Ether </h2>
+        <h2 translate="NAV_SendBit"> Send BitCoin </h2>
 
     </div>
     <div ng-show="!wd">
@@ -616,9 +597,8 @@
     </div>
   </article>
 
-
-
-  <section class="row" ng-show="wallet!=null">
+  <section class="row">
+  <!-- <section class="row" ng-show="wallet!=null"> -->
     <hr ng-show="!wd" />
 
     <!-- Sidebar -->
@@ -646,18 +626,12 @@
         <li><span class="mono wrap">{{btcBalance}}</span> BTC </li>
       </ul>
 
+                                                                                 <!--
       <div translate="sidebar_TransHistory"> Transaction History: </div>
       <ul class="account-info">
         <li><a href="https://etherscan.io/address/{{wallet.getAddressString()}}" target="_blank">https://etherscan.io/address/ {{wallet.getAddressString()}}</a></li>
       </ul>
-
-<!--
-      <div class="well">
-        <p translate="sidebar_donation"> MyEtherWallet is a free, open-source service dedicated to your privacy and security. The more donations we receive, the more time we spend creating new features, listening to your feedback, and giving you what you want. We are just two people trying to change the world. Help us?</p>
-        <a class="btn btn-primary btn-block" ng-click="onDonateClick()" translate="sidebar_donate">DONATE</a>
-        <div class="text-success text-center marg-v-sm" ng-show="tx.donate" translate="sidebar_thanks"> THANK YOU!!! </div>
-      </div>
--->
+      -->
 
     </div>
 
@@ -666,10 +640,6 @@
 
     <!-- Content -->
     <div class="col-sm-8">
-
-      <a data-toggle="modal" data-target="#txInfoModal" ng-click="txInfoModal.open()">
-        <div class="alert alert-danger small" translate="TRANS_warning">If you are using the "Only ETH" or "Only ETC" Functions you are sending via a contract. Some services have issues accepting these transactions. Read more.</div>
-      </a>
 
       <h4 translate="SEND_trans">Send Transaction</h4>
 
@@ -688,13 +658,15 @@
         <input class="form-control" type="text" placeholder="{{ 'SEND_amount_short' | translate }}" ng-model="tx.value" ng-class="Validator.isPositiveNumber(tx.value) ? 'is-valid' : 'is-invalid'"/>
         <div class="radio">
           <label><input type="radio" name="currencyRadio" value="0" ng-model="tx.sendMode"/>
-            <span translate="TRANS_standard">ETH (Standard Transaction)</span></label>
+            <span translate="TRANS_bit">BIT (Standard Transaction)</span></label>
           <br />
+        <!--
           <label><input type="radio" name="currencyRadio" value="1" ng-model="tx.sendMode"/>
             <span translate="TRANS_eth">Only ETH </span></label>
           <br />
           <label><input type="radio" name="currencyRadio" value="2" ng-model="tx.sendMode"/>
             <span translate="TRANS_etc">Only ETC </span></label>
+        -->
         </div>
         <div class="form-group">
           <label translate="TRANS_gas"> Gas: </label>
@@ -737,13 +709,6 @@
 
       <div class="form-group col-xs-12" ng-bind-html="sendTxStatus"></div>
 
-      <div class="form-group col-xs-12 small">
-        <!--<p translate="TRANS_sendInfo">-->
-        <p> We use a gas price of 0.000000021 ETH to ensure your TX gets mined quickly. Multiply 0.000000021 by the gas of your TX to obtain the cost of the TX in ether. We do not take a transaction fee. </p>
-        <p> Standard TX: 21000 gas (0.000441 ether) <br />
-            TX to Wallet Contract: 23300 gas (0.0004893 ether) <br />
-            Only ETH / ETC TX: 60000 gas (0.00126 ether) </p>
-      </div>
       <!-- / Content -->
 
       <!-- Send Modal -->
@@ -990,7 +955,8 @@
   </article>
 
 
-  <section class="row" ng-show="wallet!=null">
+  <section class="row">
+  <!-- <section class="row" ng-show="wallet!=null"> -->
     <hr ng-show="!wd" />
 
 
@@ -1168,14 +1134,6 @@
 </article>
 <!-- / Tokens Panel -->
 
-
-    
-
-    
-
-    
-
-    
 
     <article class="tab-pane active" ng-if="globalService.currentTab==globalService.tabs.bulkGenerate.id" ng-controller='bulkGenCtrl'>
 
