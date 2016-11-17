@@ -2009,7 +2009,7 @@ input[type=button].btn-block,input[type=reset].btn-block,input[type=submit].btn-
 	border-left:4px solid transparent
 }
 .dropdown,.dropup {
-	position:relative
+	position:relative;
 }
 .dropdown-toggle:focus {
 	outline:0
@@ -2851,7 +2851,7 @@ body,html {
 	width:100%;
 	max-width:1400px;
 	padding-left:5%;
-	padding-right:5%
+	padding-right:5%;
 }
 @media screen and (max-width:768px) {
 	.container {
@@ -3200,7 +3200,7 @@ input[type=password]+.eye:before {
 	display:-ms-flexbox;
 	display:flex;
 	-ms-flex-align:center;
-	align-items:center
+	align-items:center;
 }
 @media screen and (max-width:900px) {
 	.header-branding .container {
@@ -3211,7 +3211,7 @@ input[type=password]+.eye:before {
 @media screen and (min-width:901px) {
 	.header-branding .brand {
 		-ms-flex-preferred-size:245px;
-		flex-basis:245px
+		flex-basis:245px;
 	}
 }
 .header-branding .brand img {
@@ -3220,21 +3220,21 @@ input[type=password]+.eye:before {
 }
 .header-branding .brand {
 	font-size:18px;
-	font-weight:200;
+	font-weight:500;
 	color:#fff;
-	-ms-flex:1 auto;
-	flex:1 auto;
+	-ms-flex:0.1 auto;
+	flex:0.1 auto;
 	text-align:left;
-	padding:5px 0
+	padding:5px 0;
 }
 .header-branding .tagline {
 	font-size:18px;
-	font-weight:200;
+	font-weight:500;
 	color:#fff;
-	-ms-flex:1 auto;
-	flex:1 auto;
-	text-align:right;
-	padding:5px 0
+	-ms-flex:0.1 auto;
+	flex:0.1 auto;
+	text-align:center;
+	padding:5px 0;
 }
 @media screen and (max-width:900px) {
 	.header-branding .tagline {
@@ -3243,13 +3243,13 @@ input[type=password]+.eye:before {
 }
 .header-branding .tagline>* {
 	display:inline;
-	vertical-align:middle
+	vertical-align:middle;
 }
 .header-branding a {
 	color:#fff;
 	cursor:pointer;
 	font-weight:400;
-	transition:all .25s ease
+	transition:all .25s ease;
 }
 .header-branding a:active,.header-branding a:focus,.header-branding a:hover {
 	opacity:.8;
@@ -3259,12 +3259,15 @@ input[type=password]+.eye:before {
 }
 .header-branding .dropdown {
 	padding:0;
-	text-align:right
+	text-align:right;
+	flex: 0.1 auto;
+	font-size: 18px;
+	font-weight: 500;
 }
 .header-branding .dropdown .dropdown-menu {
 	right:-10px;
 	min-width:auto;
-	left:auto
+	left:auto;
 }
 .header-branding .dropdown .dropdown-menu>li>a {
 	padding:5px 15px;
@@ -3285,7 +3288,8 @@ input[type=password]+.eye:before {
 	overflow-x:auto;
 	margin-bottom:-20px;
 	font-size:0;
-	white-space:nowrap
+	white-space:nowrap;
+	text-align: center;
 }
 @media screen and (max-width:768px) {
 	.nav-container .nav-scroll {
@@ -3303,7 +3307,7 @@ input[type=password]+.eye:before {
 }
 .nav-container .nav-scroll .nav-inner .nav-item {
 	display:inline-block;
-	font-size:0
+	font-size:0;
 }
 .nav-container .nav-scroll .nav-inner .nav-item a {
 	color:#f39b03;
