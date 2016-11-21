@@ -43,28 +43,19 @@
       <div translate="sidebar_AccountBal"> Account Balance: </div>
       <ul class="account-info">
         <li><span class="mono wrap">{{etherBalance}}</span> ETH </li>
-        <li><span class="mono wrap">{{etcBalance}}</span> ETC </li>
       </ul>
 
-      <div translate="sidebar_Equiv"> Equivalent Values: </div>
-      <ul class="account-info">
-        <li><span class="mono wrap">{{usdBalance}}</span> USD </li>
-        <li><span class="mono wrap">{{eurBalance}}</span> EUR </li>
-        <li><span class="mono wrap">{{btcBalance}}</span> BTC </li>
-      </ul>
+<!--interval upEther  downBit -->
 
-      <div translate="sidebar_TransHistory"> Transaction History: </div>
-      <ul class="account-info">
-        <li><a href="https://etherscan.io/address/{{wallet.getAddressString()}}" target="_blank">https://etherscan.io/address/ {{wallet.getAddressString()}}</a></li>
-      </ul>
-
-<!--
-      <div class="well">
-        <p translate="sidebar_donation"> MyEtherWallet is a free, open-source service dedicated to your privacy and security. The more donations we receive, the more time we spend creating new features, listening to your feedback, and giving you what you want. We are just two people trying to change the world. Help us?</p>
-        <a class="btn btn-primary btn-block" ng-click="onDonateClick()" translate="sidebar_donate">DONATE</a>
-        <div class="text-success text-center marg-v-sm" ng-show="tx.donate" translate="sidebar_thanks"> THANK YOU!!! </div>
-      </div>
--->
+      <div translate="sidebar_AccountAddr"> Account Address: </div>
+	<ul class="account-info">
+	 <li class="mono wrap"> {{wallet.getCheckSumAddressString()}} </li>
+	</ul>
+	
+      <div translate="siderbar_AccountBal"> Account Balance: </div>
+	<ul calss="account-info">
+	  <li><span class="mono wrap">{{bitBalance}}</span> BIT </li>
+	</ul>
 
     </div>
 
