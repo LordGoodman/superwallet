@@ -10,16 +10,11 @@
     <div ng-click="wd = !wd">
       <a class="collapse-button"><span ng-show="wd">+</span><span ng-show="!wd">-</span></a>
 
-        <h2 translate="NAV_SendEther"> Send Ether </h2>
+        <h2 >Home Page </h2>
 
     </div>
     <div ng-show="!wd">
 
-        <p translate="TRANS_desc"> If you want to send Tokens, please use the "Send Token" page instead. </p>
-        @@if (site === 'cx' )  {  <cx-wallet-decrypt-drtv></cx-wallet-decrypt-drtv>   }
-        @@if (site === 'mew' ) {  <wallet-decrypt-drtv></wallet-decrypt-drtv>         }
-
-    </div>
   </article>
 
 
@@ -35,7 +30,7 @@
 
       <div id="addressIdenticon" class="med" title="Address Indenticon" blockie-address="{{wallet.getAddressString()}}" watch-var="wallet"></div>
 
-      <div translate="sidebar_AccountAddr"> Account Address: </div>
+      <div >Ethereum Account Address:</div>
       <ul class="account-info">
         <li class="mono wrap"> {{wallet.getChecksumAddressString()}} </li>
       </ul>
@@ -43,40 +38,27 @@
       <div translate="sidebar_AccountBal"> Account Balance: </div>
       <ul class="account-info">
         <li><span class="mono wrap">{{etherBalance}}</span> ETH </li>
-        <li><span class="mono wrap">{{etcBalance}}</span> ETC </li>
       </ul>
 
-      <div translate="sidebar_Equiv"> Equivalent Values: </div>
-      <ul class="account-info">
-        <li><span class="mono wrap">{{usdBalance}}</span> USD </li>
-        <li><span class="mono wrap">{{eurBalance}}</span> EUR </li>
-        <li><span class="mono wrap">{{btcBalance}}</span> BTC </li>
-      </ul>
+	</br>
+	     
+<!-- interval -->
+	</br>
+     <div> Bitcoin Account Address:</div>
+     <ul class="account-info">
+       <li class="mono wrap"> {{wallet.getChecksumAddressString()}} </li>
+     </ul>
 
-      <div translate="sidebar_TransHistory"> Transaction History: </div>
-      <ul class="account-info">
-        <li><a href="https://etherscan.io/address/{{wallet.getAddressString()}}" target="_blank">https://etherscan.io/address/ {{wallet.getAddressString()}}</a></li>
-      </ul>
-
-<!--
-      <div class="well">
-        <p translate="sidebar_donation"> MyEtherWallet is a free, open-source service dedicated to your privacy and security. The more donations we receive, the more time we spend creating new features, listening to your feedback, and giving you what you want. We are just two people trying to change the world. Help us?</p>
-        <a class="btn btn-primary btn-block" ng-click="onDonateClick()" translate="sidebar_donate">DONATE</a>
-        <div class="text-success text-center marg-v-sm" ng-show="tx.donate" translate="sidebar_thanks"> THANK YOU!!! </div>
-      </div>
--->
-
-    </div>
-
+     <div translate="sidebar_AccountBal"> Account Balance: </div>
+     <ul class="account-info">
+       <li><span class="mono wrap">{{bitBalance}}</span> Bit </li>
+    </ul>
+</div>
     <!-- / Sidebar -->
 
 
     <!-- Content -->
     <div class="col-sm-8">
-
-      <a data-toggle="modal" data-target="#txInfoModal" ng-click="txInfoModal.open()">
-        <div class="alert alert-danger small" translate="TRANS_warning">If you are using the "Only ETH" or "Only ETC" Functions you are sending via a contract. Some services have issues accepting these transactions. Read more.</div>
-      </a>
 
       <h4 translate="SEND_trans">Send Transaction</h4>
 
@@ -91,17 +73,14 @@
 
       <div class="form-group col-xs-12">
         <label translate="SEND_amount">Amount to Send:</label>
-        <a class="pull-right" ng-click="transferAllBalance()" translate="SEND_TransferTotal">Send Entire Balance</a>
+        <a class="pull-right" ng-click="transferAllBalance()" translate="SEND_TransferTotal">Send Balance</a>
         <input class="form-control" type="text" placeholder="{{ 'SEND_amount_short' | translate }}" ng-model="tx.value" ng-class="Validator.isPositiveNumber(tx.value) ? 'is-valid' : 'is-invalid'"/>
         <div class="radio">
           <label><input type="radio" name="currencyRadio" value="0" ng-model="tx.sendMode"/>
-            <span translate="TRANS_standard">ETH (Standard Transaction)</span></label>
+            <span translate="TRANS_standard">ETH</span></label>
+	  <label><input type="radio" name="currencyRadio" value="1" ng-model="tx.sendMode"/>
+	    <span>BIT</span></label>
           <br />
-          <label><input type="radio" name="currencyRadio" value="1" ng-model="tx.sendMode"/>
-            <span translate="TRANS_eth">Only ETH </span></label>
-          <br />
-          <label><input type="radio" name="currencyRadio" value="2" ng-model="tx.sendMode"/>
-            <span translate="TRANS_etc">Only ETC </span></label>
         </div>
         <div class="form-group">
           <label translate="TRANS_gas"> Gas: </label>
@@ -144,13 +123,6 @@
 
       <div class="form-group col-xs-12" ng-bind-html="sendTxStatus"></div>
 
-      <div class="form-group col-xs-12 small">
-        <!--<p translate="TRANS_sendInfo">-->
-        <p> We use a gas price of 0.000000021 ETH to ensure your TX gets mined quickly. Multiply 0.000000021 by the gas of your TX to obtain the cost of the TX in ether. We do not take a transaction fee. </p>
-        <p> Standard TX: 21000 gas (0.000441 ether) <br />
-            TX to Wallet Contract: 23300 gas (0.0004893 ether) <br />
-            Only ETH / ETC TX: 60000 gas (0.00126 ether) </p>
-      </div>
       <!-- / Content -->
 
       <!-- Send Modal -->
