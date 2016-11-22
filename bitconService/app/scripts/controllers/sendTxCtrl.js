@@ -14,7 +14,8 @@ var sendTxCtrl = function($scope, $sce, walletService) {
 	$scope.showRaw = false;
 	$scope.replayContract = "0xaa1a6e3e6ef20068f7f8d8c835d2d22fd5116444";
 	$scope.splitHex = "0x0f2c9329";
-    $scope.Validator = Validator;
+       // $scope.setBalance();
+	$scope.Validator = Validator;
 	$scope.tx = {
 		gasLimit: globalFuncs.urlGet('gaslimit') == null ? globalFuncs.defaultTxGasLimit : globalFuncs.urlGet('gaslimit'),
 		data: globalFuncs.urlGet('data') == null ? "" : globalFuncs.urlGet('data'),
@@ -60,7 +61,7 @@ var sendTxCtrl = function($scope, $sce, walletService) {
         });
     }
 	$scope.setBalance = function() {
-		ajaxReq.getBalance($scope.EtherBalance, false, function(data) {
+		ajaxReq.getBalance($scope.EtherAddress, false, function(data) {
 			if (data.error) {
 				$scope.etherBalance = data.msg;
 			} else {
@@ -68,7 +69,7 @@ var sendTxCtrl = function($scope, $sce, walletService) {
 				}
 			});
 		
-		ajaxReqBit.getBalance($scope.BitBalance,function(data){
+		ajaxReq.getBalanceBit($scope.BitAddress,function(data){
 			if (data.err){
 				$scope.bitBalance = data.error;
 			

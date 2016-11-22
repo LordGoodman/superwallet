@@ -20,7 +20,9 @@
       <h4 translate="sidebar_AccountInfo"> Account Information: </h4>
 
       <div >Ethereum Account Address:</div>
-
+      <ul class="account-info">
+	 <li>{{EtherAddress}}</li>
+      </ul>
       <div translate="sidebar_AccountBal"> Account Balance: </div>
       <ul class="account-info">
         <li><span class="mono wrap">{{etherBalance}}</span> ETH </li>
@@ -32,13 +34,14 @@
 	</br>
      <div> Bitcoin Account Address:</div>
      <ul class="account-info">
-       <li class="mono wrap"> {{wallet.getChecksumAddressString()}} </li>
+	<li>{{BitAddress}}</li>
      </ul>
-
      <div translate="sidebar_AccountBal"> Account Balance: </div>
      <ul class="account-info">
        <li><span class="mono wrap">{{bitBalance}}</span> Bit </li>
     </ul>
+	
+      <a class="btn btn-info  ng-scope" ng-click="setBalance()" >刷新余额</a>
 </div>
     <!-- / Sidebar -->
 
