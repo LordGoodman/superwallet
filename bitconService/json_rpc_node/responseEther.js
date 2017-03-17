@@ -48,7 +48,7 @@ Response.getResponseSync = function(method, data, isClassic) {
 Response.getBalance = function(addr, isClassic) {
 	return this.runInTryCatch(function(data) {
 		addr = Response.formatAddress(addr);
-		data.data = {
+		data.result = {
 			address: addr,
 			balance: new BN(Response.getResponseSync("eth_getBalance", [addr, "pending"], isClassic))
 		};
@@ -56,14 +56,14 @@ Response.getBalance = function(addr, isClassic) {
 }
 Response.getCurrentBlock = function(isClassic) {
 	return this.runInTryCatch(function(data) {
-		data.data = new BN(Response.getResponseSync("eth_blockNumber", [], isClassic));
+		data.result = new BN(Response.getResponseSync("eth_blockNumber", [], isClassic));
 	});
 }
 Response.getTransactionData = function(addr, isClassic) {
 	var parent = this;
 	return this.runInTryCatch(function(data) {
 		addr = parent.formatAddress(addr);
-		data.data = {
+		data.result = {
 			address: addr,
 			balance: new BN(Response.getResponseSync("eth_getBalance", [addr, "pending"], isClassic)),
 			nonce: Response.getResponseSync("eth_getTransactionCount", [addr, "pending"], isClassic),
@@ -74,31 +74,30 @@ Response.getTransactionData = function(addr, isClassic) {
 Response.sendRawTransaction = function(rawTx, isClassic) {
 	var parent = this;
 	return this.runInTryCatch(function(data) {
-		data.data = Response.getResponseSync("eth_sendRawTransaction", [rawTx], isClassic);
+		data.result = Response.getResponseSync("eth_sendRawTransaction", [rawTx], isClassic);
 	});
 }
 Response.getEthCall = function(txObj, isClassic) {
 	var parent = this;
 	return this.runInTryCatch(function(data) {
-		data.data = Response.getResponseSync("eth_call", [txObj, "pending"], isClassic);
+		data.result = Response.getResponseSync("eth_call", [txObj, "pending"], isClassic);
 	});
 }
 Response.getEstimatedGas = function(txObj, isClassic) {
 	var parent = this;
 	return this.runInTryCatch(function(data) {
-		data.data = Response.getResponseSync("eth_estimateGas", [txObj], isClassic);
+		data.result = Response.getResponseSync("eth_estimateGas", [txObj], isClassic);
 	});
 }
 Response.getErrorResponse = function(e) {
     var data = this.getDefaultResponse();
-    data.error = true; data.msg = e;
+    data.error = e;
     return JSON.stringify(data);
 }
 Response.getDefaultResponse = function() {
 	return {
-		"error": false,
-		"msg": "",
-		"data": ""
+		"result": "",
+		"error" : "null"
 	};
 }
 Response.runInTryCatch = function(func) {
@@ -106,8 +105,8 @@ Response.runInTryCatch = function(func) {
 	try {
 		func(data);
 	} catch (e) {
-		data.error = true;
-		data.msg = e.toString();
+		data.error = e.toString();
+		//result.msg = e.toString();
 	}
 	return JSON.stringify(data);
 }

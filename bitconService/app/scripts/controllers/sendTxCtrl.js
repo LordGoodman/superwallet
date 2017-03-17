@@ -63,14 +63,14 @@ var sendTxCtrl = function($scope, $sce, walletService) {
 	$scope.setBalance = function() {
 		ajaxReq.getBalance($scope.EtherAddress, false, function(data) {
 			if (data.error) {
-				$scope.etherBalance = data.msg;
+				$scope.etherBalance = data.error;
 			} else {
-				$scope.etherBalance = etherUnits.toEther(data.data.balance, 'wei');
+				$scope.etherBalance = etherUnits.toEther(data.result.balance, 'wei');
 				}
 			});
 		
 		ajaxReq.getBalanceBit($scope.BitAddress,function(data){
-			if (data.err){
+			if (data.error){
 				$scope.bitBalance = data.error;
 			
 			} else {

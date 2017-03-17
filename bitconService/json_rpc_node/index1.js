@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({
 
 app.post('/api.mew',function(req,res){
 	res.header('Access-Control-Allow-Origin','*');
-	res.header('Content-Type','application/json');
+
 	res.header('Access-Control-Allow-Methods','POST,GET,OPTIONS,PUT,DELETE');
 	//var refer
 	req = req.body;
@@ -31,7 +31,7 @@ app.post('/api.mew',function(req,res){
 var handleRequestEther = function(req,res){
 	if ("balance" in req) res.write(responseEther.getBalance(req['balance']));
 	else if ("rawtx" in req) res.write(responseEther.sendRawTransaction(req['rawtx'])); 
-	else if ("txdata" in req) res.write(responseEther.getTransaction(req['txdata']));
+	else if ("txdata" in req) res.write(responseEther.getTransactionData(req['txdata']));
 	else if ("extimatedGas" in req) res.write(responseEther.getEstimatedGas(req['estimatedGas']));
 	else if ("ethCall" in req) res.write(responseEther.getEthCall(req['estimatedGas']));
 	else if ("currentBlock" in req) res.write(responseEther.getCurrentBlock());
@@ -59,7 +59,7 @@ var handleRequestBit = function(req,res){
 			for(var i=0; i<re.length; i++){
 				amount += re[i].amount;
 				}
-			res.write(JSON.stringify({'result':{'balance':amount},'error':'null','id':result.id}));
+			res.write(JSON.stringify({'result':{'balance':amount,'address':req['allBalance']},'error':'null'}));
 		}
 		res.end();
 	});
